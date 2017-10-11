@@ -11,5 +11,8 @@
   "devDependencies": {
     "cookie-parser": "^1.4.3",
     "express": "^4.16.2"
+  },
+  "engine": {
+    "node": ">=6.5.0"
   }
 }
