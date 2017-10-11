@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <div>
+      <button id="no-cookies">No Cookies</button>
+      <button id="user-cookie">User Cookie</button>
+      <button id="admin-cookie">Admin Cookie</button>
+      <button id="existing-cookies">Existing Cookies</button>
+    </div>
+    <div>
+      <p id="status">No Requests Issued.</p>
+    </div>
+
+
+    <script type="application/javascript">
+      const status = document.getElementById('status');
+      const cases = {
+        'no-cookies': 'IdentityCookie=foobar; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT',
+        'user-cookie': 'IdentityCookie=user',
+        'admin-cookie': 'IdentityCookie=admin',
+        'existing-cookies': undefined
+      };
+
+      for (let id in cases) {
+        let cookie = cases[id];
+        document.getElementById(id).onclick = () => {
+          if (typeof cookie !== 'undefined')
+            document.cookie = cookie;
+
+          fetch('/admin-page', { credentials: 'include' }).
+          then(response => { status.innerText = response.status; });
+        };
+      }
+
+    </script>
+  </body>
+</html>

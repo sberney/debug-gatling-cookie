@@ -1,0 +1,15 @@
+{
+  "name": "gatling-cookie-demo",
+  "version": "1.0.0",
+  "description": "Ultra-basic cookie-based web app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam Berney",
+  "license": "MIT",
+  "devDependencies": {
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2"
+  }
+}
