@@ -1,0 +1,16 @@
+<html>
+  <body>
+    <button id="admin-login">Login as Admin</button>
+
+    <script type="application/javascript">
+      document.getElementById('admin-login').onclick = () => {
+        fetch('/successful-authentication', { credentials: 'include' }).
+        then(() => {
+          document.body.innerText = 'Redirecting...';
+          setTimeout(() => { window.location = '/'; }, 1000);
+        });
+      };
+    </script>
+
+  </body>
+</html>

@@ -19,6 +19,16 @@ app.get('/admin-page', (req, res) => {
     res.send('super secret info');
 });
 
+
+
+app.get('/login', (req, res) => {
+  res.sendFile(__dirname + '/static/login.html');
+});
+
+app.get('/successful-authentication', (req, res) => {
+  res.cookie('IdentityCookie', 'admin').json({ auth: true });
+});
+
 app.listen(1139, () => {
   console.log('Listening on port 1139...');
 });
