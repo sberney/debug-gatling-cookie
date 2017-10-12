@@ -1,7 +1,7 @@
-# Debugging Gatling's Cookies
+# Debugging Gatling Recorder's Cookies
 
-Gatling Recorder ignores the `Cookie: ` header as well the `Set-Cookie: ` header,
-meaning that the Recording feature cannot be used with Web Apps which use cookies.
+Gatling Recorder ignores the `Cookie: ` header but not the `Set-Cookie: ` header,
+meaning that the Recording feature is hard to use with certain Web Apps.
 
 # Usage
 
@@ -20,7 +20,7 @@ npm start
 All requests to the protected `/admin-page` in Gatling fail with status `401`,
 because no cookies are sent.
 
-And of course if you examine the Simulation file, it didn't make note of these headers.
+If you examine the Simulation file, it didn't make note of these headers.
 
 ## Case 2, `Set-Cookie: IdentityCookie=admin; Path=/` ignored
 
@@ -32,4 +32,5 @@ And of course if you examine the Simulation file, it didn't make note of these h
 * Replay behavior in Gatling.
 
 No reference to `IdentityCookie` is contained in the Simulation file,
-and the request to the protected `/admin-page` in Gatling fails with status `401`.
+however this is because the cookies are set by the server at runtime.
+Case 2 ought to work.
